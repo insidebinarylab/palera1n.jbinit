@@ -1,8 +1,8 @@
 name: Build
 
 on:
-  push:
-  pull_request:
+  # push:
+  # pull_request:
   workflow_dispatch:
 
 jobs:
@@ -51,14 +51,14 @@ jobs:
           cp src/ramdisk.dmg dist/ramdisk.development.dmg
           cp src/binpack.dmg dist/binpack.development.dmg
 
-      - name: Upload artifact
-        uses: wangyucode/sftp-upload-action@v3
-        with:
-          host: ${{ secrets.NICKCHAN_FTP_HOST }}
-          port: ${{ secrets.NICKCHAN_FTP_PORT }}
-          username: palera1n
-          password: ${{ secrets.NICKCHAN_FTP_PASS }}
-          forceUpload: true
-          dryRun: false
-          localDir: 'dist/'
-          remoteDir: '/palera1n/c-rewrite/deps/'
+      # - name: Upload artifact
+      #   uses: wangyucode/sftp-upload-action@v3
+      #   with:
+      #     host: ${{ secrets.NICKCHAN_FTP_HOST }}
+      #     port: ${{ secrets.NICKCHAN_FTP_PORT }}
+      #     username: palera1n
+      #     password: ${{ secrets.NICKCHAN_FTP_PASS }}
+      #     forceUpload: true
+      #     dryRun: false
+      #     localDir: 'dist/'
+      #     remoteDir: '/palera1n/c-rewrite/deps/'
